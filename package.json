@@ -1,0 +1,16 @@
+{
+  "name": "dag-4",
+  "version": "0.0.1",
+  "description": "Simple http server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
+  },
+  "author": "psl@tec.dk",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19"
+  }
+}
