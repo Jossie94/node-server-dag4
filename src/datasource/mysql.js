@@ -48,3 +48,15 @@ exports.updatePerson = function(pid, person, callback) {
     })
 }
 
+exports.deletePerson = function(pid, callback) {
+    const sql = "delete from persons where persid - ?";
+    conn.query(sql, [ pid], (err, result) => {
+        if(err) {
+            console.log(err);
+            return;
+        }
+        callback(result);
+    })
+}
+
+

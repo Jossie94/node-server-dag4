@@ -1,4 +1,4 @@
-const { getAllPersons, getPersonByID, insertPerson, updatePerson } = require("../datasource/mysql");
+const { getAllPersons, getPersonByID, insertPerson, updatePerson, deletePerson } = require("../datasource/mysql");
 const { sendJSON, getData } = require("../utilities")
 
 module.exports = {
@@ -49,7 +49,28 @@ module.exports = {
                 })
         }
     },
+
     "DELETE": {
+        handler: function(req, res, param) {
+            if(!param) {
+                sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", error: "Parameter required"}, 400);
+                return;
+            }
+            //if param is a number
+            if(isNaN(param)) {
+                sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", error: "parameter must be a number"}, 400);
+                return;
+            }
+            deletePerson(param,data => {
+                sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", param, data});
+            });
+        }
+    }
+}
+
+
+
+   /* "DELETE": {
         handler: function(req, res, param) {
             if(!param) {
                 sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", error: "Parameter required"}, 400);
@@ -57,5 +78,4 @@ module.exports = {
             }            
             sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", param});
         }
-    }
-}
+    }*/
