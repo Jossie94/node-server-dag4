@@ -62,7 +62,8 @@ module.exports = {
                 return;
             }
             deletePerson(param,data => {
-                sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", param, data});
+                console.log(param)
+                sendJSON(req, res, {route: "/api/cat", method: req.method, says: "Miauw", param, data}), 204;
             });
         }
     }

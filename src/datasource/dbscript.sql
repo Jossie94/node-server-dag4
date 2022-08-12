@@ -1,5 +1,5 @@
--- create database psl;
--- use psl;
+-- create database josedata;
+-- use josedata;
 
 drop table if exists persons;
 
@@ -32,5 +32,5 @@ insert into persons (
 -- drop user if exists 'dingdong'@'localhost';
 create user 'dingdong'@'localhost' identified by 'dingdong';
 
-grant select, insert, update, delete on psl.persons to 'dingdong'@'localhost';
+grant select, insert, update, delete on josedata.persons to 'dingdong'@'localhost';
     

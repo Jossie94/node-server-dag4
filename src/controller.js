@@ -1,7 +1,8 @@
 const cnf = require("./config/serverconfig.json");
 const {sendText, sendJSON, sendFile, redirect, logger, streamFile} = require("./utilities");
 const api = {
-    "cat" : require("./api/cat")
+    "cat" : require("./api/cat"),
+    "person" :require("./api/person")
 };
 
 module.exports = function(req, res) {

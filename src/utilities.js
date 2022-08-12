@@ -70,7 +70,15 @@ exports.getData = function(req) {
         })
         req.on("end", function() {
             // console.log(JSON.parse(dataStr));
-            resolve(JSON.parse(dataStr));
+            try{
+                resolve(JSON.parse(dataStr));
+
+            }
+            catch(err){
+                console.log("Unexpected value in JSON", dataStr);
+                reject(err)
+            }
+            
         })
     })
 }
